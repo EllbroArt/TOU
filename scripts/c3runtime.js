@@ -3482,6 +3482,8 @@ if(!wi||!imageInfo)return;if(lastSetCursor===imageInfo)return;lastSetCursor=imag
 		C3.Plugins.System.Acts.AddVar,
 		C3.Plugins.Sprite.Acts.SetAnimFrame,
 		C3.Plugins.LocalStorage.Acts.SetItem,
+		C3.Plugins.VKBridge.Acts.LeaderSave,
+		C3.Plugins.VKBridge.Acts.JoinGroup,
 		C3.Plugins.System.Acts.SetBoolVar,
 		C3.Plugins.Arr.Exps.At,
 		C3.Plugins.Sprite.Cnds.CompareFrame,
@@ -3499,6 +3501,9 @@ if(!wi||!imageInfo)return;if(lastSetCursor===imageInfo)return;lastSetCursor=imag
 		C3.Plugins.VKBridge.Acts.ShowAds,
 		C3.Plugins.System.Acts.GoToLayout,
 		C3.Plugins.Audio.Cnds.IsTagPlaying,
+		C3.Plugins.VKBridge.Acts.ShowInvite,
+		C3.Plugins.VKBridge.Acts.ShowWall,
+		C3.Plugins.VKBridge.Acts.LeaderBoardVKUI,
 		C3.Plugins.Audio.Acts.PreloadByName,
 		C3.Plugins.System.Cnds.CompareBoolVar,
 		C3.Plugins.Sprite.Cnds.IsVisible,
@@ -3571,6 +3576,12 @@ if(!wi||!imageInfo)return;if(lastSetCursor===imageInfo)return;lastSetCursor=imag
 		{Sprite5: 0},
 		{Mouse: 0},
 		{VKBridge: 0},
+		{Share: 0},
+		{Friends: 0},
+		{TXT_friends: 0},
+		{TXT_Share: 0},
+		{FriendsTOP: 0},
+		{TXT_TOP: 0},
 		{Family1: 0},
 		{Hero_1_LVL: 0},
 		{LVL: 0},
@@ -3801,6 +3812,11 @@ if(!wi||!imageInfo)return;if(lastSetCursor===imageInfo)return;lastSetCursor=imag
 		() => "GOLD",
 		() => "LVL_MAX",
 		() => "Hero_1_LVL",
+		() => 112,
+		() => 150,
+		() => 100,
+		() => 333,
+		() => 204776493,
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			const v1 = p._GetNode(1).GetVar();
@@ -3808,7 +3824,6 @@ if(!wi||!imageInfo)return;if(lastSetCursor===imageInfo)return;lastSetCursor=imag
 			const v3 = p._GetNode(3).GetVar();
 			return () => (((v0.GetValue() * 10) + (v1.GetValue() * v2.GetValue())) * Math.ceil((v3.GetValue() * 0.1)));
 		},
-		() => 112,
 		() => 250,
 		() => 236,
 		() => "Улучшить",
@@ -3848,7 +3863,6 @@ if(!wi||!imageInfo)return;if(lastSetCursor===imageInfo)return;lastSetCursor=imag
 		() => 53,
 		() => 65,
 		() => 89,
-		() => 100,
 		() => 81,
 		() => 82,
 		() => 44,
@@ -3903,7 +3917,6 @@ if(!wi||!imageInfo)return;if(lastSetCursor===imageInfo)return;lastSetCursor=imag
 		() => 40,
 		() => 125,
 		() => 60,
-		() => 150,
 		() => 175,
 		() => 80,
 		() => 300,
@@ -3916,6 +3929,11 @@ if(!wi||!imageInfo)return;if(lastSetCursor===imageInfo)return;lastSetCursor=imag
 			return () => and((and("ОЗ: ", n0.ExpInstVar()) + "/"), n1.ExpInstVar());
 		},
 		() => "back",
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => (and("Я уже на этаже под номером - ", v0.GetValue()) + "!");
+		},
+		() => "https://vk.com/app7864528",
 		() => "Knopki",
 		() => "Уровни",
 		() => "Прокачка",
@@ -3976,6 +3994,7 @@ if(!wi||!imageInfo)return;if(lastSetCursor===imageInfo)return;lastSetCursor=imag
 		() => 30000,
 		() => 3000,
 		() => "END2",
+		() => "Кто сможет покорить эту башню?",
 		() => "pack_01",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
